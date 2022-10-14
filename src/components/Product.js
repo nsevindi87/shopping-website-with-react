@@ -1,6 +1,11 @@
 import React from 'react'
 
-function Product({pProduct, pBasket, pSetBasket}) {
+
+
+
+
+
+function Product({pProduct, pTotal, pMoney, pBasket, pSetBasket}) {
 
   const basketItem = pBasket.find(item => item.id === pProduct.id)
 
@@ -20,6 +25,19 @@ function Product({pProduct, pBasket, pSetBasket}) {
     }
   }
 
+  const removeBasket = ()=>{
+    const currentBasket = pBasket.find(item => item.id === pProduct.id)
+    const basketWithoutCurrent = pBasket.filter(item => item.id === pProduct.id)
+    currentBasket.amount -= 1
+
+    if (currentBasket.amount === 0){
+      pSetBasket([...basketWithoutCurrent])
+    }else{
+      pSetBasket([...basketWithoutCurrent, currentBasket])
+    }
+
+  }
+
 
 
 
@@ -32,7 +50,7 @@ function Product({pProduct, pBasket, pSetBasket}) {
         <div className="price">$ {pProduct.price}</div>
 
         <div className="actions">
-          <button>Sat</button>
+          <button disabled={!basketItem} onClick={removeBasket}>Cikart</button>
           <span className="amount">{basketItem && basketItem.amount || 0}</span>
           <button onClick={addBasket}>Ekle</button>
         </div>
