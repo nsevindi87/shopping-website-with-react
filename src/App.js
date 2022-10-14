@@ -1,11 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState, useEffect} from 'react';
+import Header from './components/Header';
+import products from './products.json';
+import Product from './components/Product'
 
 function App() {
+
+  const [money, setMoney] = useState(100)
+
   return (
-    <div className="App">
+    <>
+      <Header pMoney={money}/>
       
-    </div>
+      {products.map(product => (
+        <Product pProduct={product}/>
+      ))}
+    
+    </>
   );
 }
 
