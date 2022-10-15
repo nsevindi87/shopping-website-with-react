@@ -1,10 +1,22 @@
 import React from 'react'
 
-function BasketItem({pItem, pProduct}) {
+function BasketItem({ pItem, pProduct }) {
   return (
-    <div>
-      {pProduct.title} x {pItem.amount}
-    </div>
+    <>
+      <li className='basket-item'>
+        {pProduct.title} <span>x {pItem.amount}</span>
+      </li>
+      <style jsx>{`
+              .basket-item {
+                padding-bottom: 10px;
+                font-size: 17px;
+              }
+              .basket-item span {
+                color: #999;
+              }
+			`}
+      </style>
+    </>
   )
 }
 
