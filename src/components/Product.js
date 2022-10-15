@@ -27,7 +27,7 @@ function Product({pProduct, pTotal, pMoney, pBasket, pSetBasket}) {
 
   const removeBasket = ()=>{
     const currentBasket = pBasket.find(item => item.id === pProduct.id)
-    const basketWithoutCurrent = pBasket.filter(item => item.id === pProduct.id)
+    const basketWithoutCurrent = pBasket.filter(item => item.id !== pProduct.id)
     currentBasket.amount -= 1
 
     if (currentBasket.amount === 0){
@@ -52,7 +52,7 @@ function Product({pProduct, pTotal, pMoney, pBasket, pSetBasket}) {
         <div className="actions">
           <button disabled={!basketItem} onClick={removeBasket}>Cikart</button>
           <span className="amount">{basketItem && basketItem.amount || 0}</span>
-          <button onClick={addBasket}>Ekle</button>
+          <button disabled={pTotal+pProduct.price > pMoney} onClick={addBasket}>Ekle</button>
         </div>
 
 
