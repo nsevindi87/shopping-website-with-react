@@ -12,7 +12,7 @@ function Basket({ pBasket, pResetBasket, pTotal, pProducts }) {
                     ))}
                 </ul>
                 <div className='total'>
-                    Toplam:{pTotal}
+                    Toplam:$ {pTotal}
                 </div>
                 <button className='basket-reset-btn' onClick={pResetBasket}>Sepeti Sifirla</button>
             </div>
