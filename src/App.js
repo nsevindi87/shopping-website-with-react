@@ -2,7 +2,8 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import products from './products.json';
-import Product from './components/Product'
+import Product from './components/Product';
+import Basket from './components/Basket'
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
       {products.map(product => (
         <Product key={product.id} pTotal={total} pMoney={money} pBasket={basket} pSetBasket={setBasket} pProduct={product} />
       ))}
+      <Basket pProducts={products} pBasket={basket}/>
       <button onClick={resetBasket}>Sepeti Sifirla</button>
     </>
   );
