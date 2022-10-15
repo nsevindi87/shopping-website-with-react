@@ -30,7 +30,7 @@ function App() {
       {products.map(product => (
         <Product key={product.id} pTotal={total} pMoney={money} pBasket={basket} pSetBasket={setBasket} pProduct={product} />
       ))}
-      <Basket pProducts={products} pBasket={basket}/>
+      <Basket pProducts={products} pTotal={total} pBasket={basket}/>
       <button onClick={resetBasket}>Sepeti Sifirla</button>
     </>
   );

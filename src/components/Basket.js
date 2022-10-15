@@ -1,14 +1,14 @@
 import React from 'react'
 import BasketItem from './BasketItem'
 
-function Basket({pBasket, pProducts}) {
+function Basket({pBasket,pTotal, pProducts}) {
   return (
     <div>
       {pBasket.map(item =>(
         <BasketItem pItem ={item} pProduct={pProducts.find(p => p.id ===item.id)}/>
       ))}
       <div>
-        Toplam:{}
+        Toplam:{pTotal}
       </div>
     </div>
   )
