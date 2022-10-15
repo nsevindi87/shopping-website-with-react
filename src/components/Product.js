@@ -42,9 +42,9 @@ function Product({pProduct, pTotal, pMoney, pBasket, pSetBasket}) {
 
 
   return (
-    <div>
+    <>
       <div className="product">
-
+        <img src={pProduct.image} alt="" />
         <h6>{pProduct.title}</h6>
 
         <div className="price">$ {pProduct.price}</div>
@@ -60,15 +60,20 @@ function Product({pProduct, pTotal, pMoney, pBasket, pSetBasket}) {
 
         <style jsx>
           {`
-          .product{
-            padding:10px;
+           .product {
+            padding:15px;
             background:#fff;
             border: 1px solid #ddd;
             margin-bottom:20px;
-          }`}
+            width:24%
+          }
+          .product img {
+            width: 100%;
+          }
+          `}
         </style>
       </div>
-    </div>
+    </>
   )
 }
 

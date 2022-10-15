@@ -7,7 +7,7 @@ import Basket from './components/Basket'
 
 function App() {
 
-  const [money, setMoney] = useState(100)
+  const [money, setMoney] = useState(1000000)
   const [basket, setBasket] = useState([])
   const [total, setTotal] = useState(0)
 
@@ -27,11 +27,14 @@ function App() {
     <>
       <Header pTotal={total} pMoney={money} />
 
+      <div className="container products">
       {products.map(product => (
         <Product key={product.id} pTotal={total} pMoney={money} pBasket={basket} pSetBasket={setBasket} pProduct={product} />
       ))}
-      <Basket pProducts={products} pTotal={total} pBasket={basket}/>
-      <button onClick={resetBasket}>Sepeti Sifirla</button>
+      </div>
+      {total>0 && (
+          <Basket pResetBasket={resetBasket} pProducts={products} pTotal={total} pBasket={basket}/>
+      )}
     </>
   );
 }
